@@ -10,10 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_21_180411) do
+ActiveRecord::Schema.define(version: 2020_02_23_220007) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "games", force: :cascade do |t|
+    t.string "rules"
+    t.string "score"
+    t.text "tasks", default: [], array: true
+    t.integer "host"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string "content"
+    t.string "ctype"
+    t.bigint "user_id", null: false
+    t.bigint "game_id", null: false
+    t.index ["game_id"], name: "index_posts_on_game_id"
+    t.index ["user_id"], name: "index_posts_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
@@ -23,4 +41,15 @@ ActiveRecord::Schema.define(version: 2020_02_21_180411) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "users_games", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "game_id", null: false
+    t.index ["game_id"], name: "index_users_games_on_game_id"
+    t.index ["user_id"], name: "index_users_games_on_user_id"
+  end
+
+  add_foreign_key "posts", "games"
+  add_foreign_key "posts", "users"
+  add_foreign_key "users_games", "games"
+  add_foreign_key "users_games", "users"
 end

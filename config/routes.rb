@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :posts
+  resources :games
   resources :users
   resources :auth, only: [:show, :create]
   # post '/login', to: 'auth#create'
