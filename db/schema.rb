@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 2020_02_23_220007) do
   enable_extension "plpgsql"
 
   create_table "games", force: :cascade do |t|
+    t.string "title"
     t.string "rules"
     t.string "score"
     t.text "tasks", default: [], array: true

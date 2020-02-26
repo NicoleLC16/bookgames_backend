@@ -16,8 +16,8 @@ mia = User.create(name: "Mia", username: "Mia", password: "mia")
 alice = User.create(name: "Alice", username: "Alice", password: "alice")
 
 # Games
-g1 = Game.create(rules: "5 in a row is a bingo", score: "Nicole: 10pts", tasks: ["1", "2", "3", "4", "5", "1", "2", "3", "4", "5", "1", "2", "3", "4", "5", "1", "2", "3", "4", "5", "1", "2", "3", "4", "5"], host: nicole.id)
-g2 = Game.create(rules: "5 in a row is a bingo", score: "Nicole: 10pts", tasks: ["1", "2", "3", "4", "5", "1", "2", "3", "4", "5", "1", "2", "3", "4", "5", "1", "2", "3", "4", "5", "1", "2", "3", "4", "5"], host: mia.id)
+g1 = Game.create(title: "YA Bingo", rules: "5 in a row is a bingo", score: "Nicole: 10pts", tasks: ["1", "2", "3", "4", "5", "1", "2", "3", "4", "5", "1", "2", "3", "4", "5", "1", "2", "3", "4", "5", "1", "2", "3", "4", "5"], host: nicole.id)
+g2 = Game.create(title: "Harry Potter Bingo", rules: "5 in a row is a bingo", score: "Nicole: 10pts", tasks: ["1", "2", "3", "4", "5", "1", "2", "3", "4", "5", "1", "2", "3", "4", "5", "1", "2", "3", "4", "5", "1", "2", "3", "4", "5"], host: mia.id)
 
 
 p1 = Post.create(content: "Good luck to all!", ctype: "comment", user_id: nicole.id, game_id: g1.id)

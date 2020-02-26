@@ -1,5 +1,5 @@
 class GameSerializer < ActiveModel::Serializer
-  attributes :id, :rules, :score, :tasks, :host
+  attributes :id, :title, :rules, :score, :tasks, :host
   has_many :posts
   has_many :users
 end
