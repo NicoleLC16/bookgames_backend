@@ -1,6 +1,6 @@
 
 class ApplicationController < ActionController::Base
-  before_action :authorized
+  # before_action :authorized
   protect_from_forgery unless: -> { request.format.json? }
   
   def issue_token

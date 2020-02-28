@@ -4,7 +4,8 @@ class CreateGames < ActiveRecord::Migration[6.0]
       t.string :title
       t.string :rules
       t.string :score
-      t.text :tasks, array: true, default: []
+      # t.text :tasks, array: true, default: []
+      t.text :tasks
       t.integer :host
 
       t.timestamps

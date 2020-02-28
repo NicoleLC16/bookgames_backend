@@ -1,5 +1,6 @@
+require 'json'
 class GamesController < ApplicationController
-    skip_before_action :authorized, only: [:index, :create, :show, :edit, :update, :destory]
+    # skip_before_action :authorized, only: [:index, :create, :show, :edit, :update, :destory]
     def index
         @games = Game.all 
         render :json => @games
@@ -7,11 +8,16 @@ class GamesController < ApplicationController
 
     def show
         @game = Game.find(params[:id])
+        # unjsonify the tasks before rendering
+        #  byebug
+        # response = {id: @game.id, title: @game.title, rules: @game.rules, score: @game.score, tasks: JSON.parse(@game.tasks), host: @game.host}
+        # sendgame[:tasks] = taskGames
         render :json => @game
     end
 
     def create 
-        @user = User.find(params[:user_id])
+        # need to_json before creating for tasks
+        # @user = User.find(params[:user_id])
         @game = Game.new(game_params)
         @game.save 
         render :json => @game
@@ -23,8 +29,12 @@ class GamesController < ApplicationController
     end 
 
     def update 
-        @user = User.find(params[:user_id])
+        # byebug
+        # @user = User.find(params[:user_id])
         @game = Game.find(params[:id])
+        # if current user exists 
+        # check current user == game.host.id?
+        # if not then do not allow update
         @game.update(game_params)
         render :json => @game
     end

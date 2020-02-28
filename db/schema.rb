@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2020_02_23_220007) do
     t.string "title"
     t.string "rules"
     t.string "score"
-    t.text "tasks", default: [], array: true
+    t.text "tasks"
     t.integer "host"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

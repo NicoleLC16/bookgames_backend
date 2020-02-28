@@ -10,14 +10,44 @@ User.destroy_all
 Game.destroy_all
 Post.destroy_all
 UsersGame.destroy_all
+
+board_obj = {
+  1 => {description: "read a book that starts with A", completed: []},
+  2 => {description: "read a book that starts with B", completed: []},
+  3 => {description: "read a book that starts with A", completed: []},
+  4 => {description: "read a book that starts with B", completed: []},
+  5 => {description: "read a book that starts with A", completed: []},
+  6 => {description: "read a book that starts with B", completed: []},
+  7 => {description: "read a book that starts with A", completed: []},
+  8 => {description: "read a book that starts with B", completed: []},
+  9 => {description: "read a book that starts with A", completed: []},
+  10 => {description: "read a book that starts with B", completed: []},
+  11 => {description: "read a book that starts with A", completed: []},
+  12 => {description: "read a book that starts with B", completed: []},
+  13 => {description: "read a book that starts with A", completed: []},
+  14 => {description: "read a book that starts with B", completed: []},
+  15 => {description: "read a book that starts with A", completed: []},
+  16 => {description: "read a book that starts with B", completed: []},
+  17 => {description: "read a book that starts with A", completed: []},
+  18 => {description: "read a book that starts with B", completed: []},
+  19 => {description: "read a book that starts with A", completed: []},
+  20 => {description: "read a book that starts with B", completed: []},
+  21 => {description: "read a book that starts with A", completed: []},
+  22 => {description: "read a book that starts with B", completed: []},
+  23 => {description: "read a book that starts with A", completed: []},
+  24 => {description: "read a book that starts with B", completed: []},
+  25 => {description: "read a book that starts with B", completed: []}
+}
+board_obj = board_obj.to_json
+
 # Users
 nicole = User.create(name: "Nicole", username: "Nicole", password: "nicole")
 mia = User.create(name: "Mia", username: "Mia", password: "mia")
 alice = User.create(name: "Alice", username: "Alice", password: "alice")
 
 # Games
-g1 = Game.create(title: "YA Bingo", rules: "5 in a row is a bingo", score: "Nicole: 10pts", tasks: ["1", "2", "3", "4", "5", "1", "2", "3", "4", "5", "1", "2", "3", "4", "5", "1", "2", "3", "4", "5", "1", "2", "3", "4", "5"], host: nicole.id)
-g2 = Game.create(title: "Harry Potter Bingo", rules: "5 in a row is a bingo", score: "Nicole: 10pts", tasks: ["1", "2", "3", "4", "5", "1", "2", "3", "4", "5", "1", "2", "3", "4", "5", "1", "2", "3", "4", "5", "1", "2", "3", "4", "5"], host: mia.id)
+g1 = Game.create(title: "YA Bingo", rules: "5 in a row is a bingo", score: "Nicole: 10pts", tasks: board_obj, host: nicole.id)
+g2 = Game.create(title: "Harry Potter Bingo", rules: "5 in a row is a bingo", score: "Nicole: 10pts", tasks: board_obj, host: mia.id)
 
 
 p1 = Post.create(content: "Good luck to all!", ctype: "comment", user_id: nicole.id, game_id: g1.id)

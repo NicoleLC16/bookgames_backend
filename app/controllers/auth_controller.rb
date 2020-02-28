@@ -1,6 +1,6 @@
 
 class AuthController < ApplicationController
-  skip_before_action :authorized, only: [:create, :show]
+  # skip_before_action :authorized, only: [:create, :show]
 
   # Create is a new login
     def create
