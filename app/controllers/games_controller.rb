@@ -2,8 +2,10 @@ require 'json'
 class GamesController < ApplicationController
     # skip_before_action :authorized, only: [:index, :create, :show, :edit, :update, :destory]
     def index
-        @games = Game.all 
-        render :json => @games
+        # blah = Game.all 
+        # blah.sort_by{|game| game.title}
+        # blah = blah.reverse
+        render :json => Game.all.sort_by {|game| game.id}.reverse
     end
 
     def show
